@@ -1,0 +1,95 @@
+@import './normalize.css';
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+img {
+  display: inline-block;
+}
+
+$size: 64px;
+$colorAll: #7c9473, #ffd66b, #cfdac8, #e8eae6, #cdd0cb;
+
+@for $i from 1 to length($colorAll) + 1 {
+  .box-li-#{$i} {
+    background-color: nth($colorAll, $i);
+  }
+}
+.box {
+  width: 9999em;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+.box-li {
+  float: left;
+  width: 100vw;
+  height: 100vh;
+}
+.carousel {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.left {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 50%;
+  margin-top: -$size / 2;
+  width: $size;
+  height: $size;
+  background: url('../img/left.png') no-repeat;
+  background-size: $size * 0.8 $size * 0.8;
+  background-position: center center;
+  transition: all 0.2s;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+.right {
+  @extend .left;
+  left: auto;
+  right: 0;
+  background-image: url('../img/right.png');
+}
+
+$size-li: 18px;
+.operation {
+  position: absolute;
+  bottom: $size-li * 2;
+  left: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  text-align: center;
+}
+.operation-li {
+  z-index: 1;
+  width: $size-li;
+  height: $size-li;
+  border-radius: 50%;
+  background: #fff;
+  margin-right: $size-li / 2;
+  &:last-child {
+    margin-right: 0;
+  }
+  cursor: pointer;
+}
+// 获取焦点
+.active {
+  background-color: #a6a9b6;
+}
+
+.message {
+  position: relative;
+  z-index: 2;
+  font-size: 24px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.9);
+}
