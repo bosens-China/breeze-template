@@ -23,9 +23,9 @@ interface Iparameter {
 
 class Carousel {
   public current: number;
-  public box!: JQuery<HTMLElement>;
-  public timeous: number;
-  public change: Iparameter['change'];
+  private box!: JQuery<HTMLElement>;
+  private timeous: number;
+  private change: Iparameter['change'];
 
   public length = 0;
   private width = 0;
@@ -203,7 +203,7 @@ $(() => {
     carousel.jumpTo(index);
   });
   carousel.timing();
-  carousel.box.hover(
+  $('#app').hover(
     () => {
       carousel.cancelTiming();
     },
