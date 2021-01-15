@@ -197,7 +197,7 @@ $(() => {
     carousel.jumpTo(index);
   });
   carousel.timing();
-  carousel.box.hover(
+  $('#app').hover(
     () => {
       carousel.cancelTiming();
     },
